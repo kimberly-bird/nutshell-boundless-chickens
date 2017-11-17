@@ -14,11 +14,13 @@ const newSubmitClick = function () {
 
 		
 			// parses from eggshell database and display in inner HTML
-			const parsedData = getData()
-			parsedData.news.push(newsObject(url, title, synopsis, date))
-			setData(parsedData)
-			document.getElementById("news-inject").innerHTML =""
-			displayNews()
+			const parsedData = getData( function () {
+				parsedData.news.push(newsObject(title))
+				setData(parsedData)
+				document.getElementById("news-inject").innerHTML =""
+				displayNews()
+
+			})
 
 
 		}
